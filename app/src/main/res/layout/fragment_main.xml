@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="click"
+            type="com.fengdi.voiceintellect.ui.fragment.MainFragment.ProxyClick" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_default_layout"
+        android:orientation="vertical">
+
+        <org.heiyiren.app.mvp.ui.widget.StatusBarPlaceHolder
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/JgTextView_MainColor"
+                android:layout_centerInParent="true"
+                android:text="房间"
+                android:textColor="@color/textColorLight"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tvSelectRoom"
+                style="@style/JgTextView_MainColor"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:gravity="center"
+                android:onClick="@{()->click.selectRoom()}"
+                android:text="选择房间"
+                android:textColor="@color/textColorLight"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <include layout="@layout/include_recyclerview" />
+
+
+    </LinearLayout>
+</layout>

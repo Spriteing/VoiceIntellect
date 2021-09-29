@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+
+    <!--状态栏颜色-->
+    <color name="colorPrimary">#FF6600</color>
+    <!--ToolBar上的Title颜色-->
+    <color name="colorPrimaryDark">#FF6600</color>
+    <!--控制各个控件被选中时的颜色-->
+    <color name="colorAccent">#FFCC99</color>
+    <color name="textHint">#999999</color>
+    <color name="bg_default_layout">#FFCC99</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="colorGray">#333</color>
+    <color name="transparent">#00000000</color>
+
+    <!--    主要文本颜色-->
+    <color name="textColorPrimary">#333333</color>
+    <!--    文本颜色亮色-->
+    <color name="textColorLight">#ffffff</color>
+    <!--    副文本颜色-->
+    <color name="textColorSecondary">#666666</color>
+    <color name="c_666666">#666666</color>
+    <color name="c_cccccc">#cccccc</color>
+</resources>

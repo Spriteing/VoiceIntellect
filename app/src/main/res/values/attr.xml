@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--ToolBar-->
+    <declare-styleable name="MyToolBar">
+        <attr name="title" format="string" />
+        <attr name="titleTextColor" format="color" />
+        <attr name="rightContent" format="string" />
+        <attr name="rightTextSize" format="dimension" />
+        <attr name="rightTextColor" format="color" />
+        <attr name="android:background" format="color" />
+        <attr name="leftIcon" format="reference" />
+        <attr name="isNeedStatusbarPadding" format="boolean" />
+        <attr name="leftIconVisible" format="enum">
+            <enum name="gone" value="0" />
+            <enum name="visible" value="1" />
+        </attr>
+        <attr name="rightIcon" format="reference" />
+        <attr name="statusBarVisible" format="enum">
+            <enum name="gone" value="0" />
+            <enum name="visible" value="1" />
+        </attr>
+        <attr name="lineVisible" format="enum">
+            <enum name="gone" value="0" />
+            <enum name="visible" value="1" />
+        </attr>
+
+    </declare-styleable>
+
+
+    <declare-styleable name="MySpinner">
+        <!--        默认文字-->
+        <attr name="defaultText" format="string" />
+        <!--        是否需要提示-->
+        <attr name="needHint" format="boolean" />
+        <attr name="textSize" format="dimension" />
+        <!--线条宽度-->
+        <attr name="itemHeight" format="dimension" />
+
+    </declare-styleable>
+
+
+    <declare-styleable name="MyTextView">
+<!--        自定义TextView-->
+        <attr name="textFontWeight" format="enum">
+            <enum name="bold" value="0"/>
+            <enum name="medium" value="1"/>
+            <enum name="regular" value="2"/>
+        </attr>
+
+    </declare-styleable>
+
+
+</resources>

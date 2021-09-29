@@ -1,0 +1,123 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        applicationId "com.fengdi.voiceintellect"
+        minSdk 21
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        /* ndk {
+      // 设置支持的SO库架构 一般只设置这个就阔以设配所有的设备了，还可以减少apk的大小
+      abiFilters 'armeabi','armeabi-v7a'
+  }*/
+        multiDexEnabled true
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation project(path: ':JetpackMvvm')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+
+    //管理界面状态库
+    implementation 'com.kingja.loadsir:loadsir:1.3.8'
+
+    //指示器库
+    implementation 'com.github.hackware1993:MagicIndicator:1.7.0'
+    //官方的
+    implementation 'com.google.android:flexbox:2.0.1'
+    //加载webview
+    implementation 'com.just.agentweb:agentweb:4.1.3'
+    implementation 'com.just.agentweb:filechooser:4.1.3'
+    implementation 'com.download.library:Downloader:4.1.3'
+    //Bugly
+    implementation 'com.tencent.bugly:crashreport_upgrade:1.4.5'
+    implementation 'com.tencent.bugly:nativecrashreport:3.7.1'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    //屏幕适配
+    implementation 'me.jessyan:autosize:1.2.1'
+    //防崩溃
+    implementation 'cat.ereza:customactivityoncrash:2.3.0'
+    //下载
+    implementation("com.liulishuo.filedownloader:library:1.7.7") {
+        exclude group: "com.android.support"
+    }
+
+    //微信开源项目，替代SP
+    implementation 'com.tencent:mmkv:1.0.22'
+
+    //util
+    implementation 'com.blankj:utilcodex:1.30.6'
+
+    //BaseAdapter
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+
+    //底部bottomBar
+    implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
+
+    //第三方recyclerview
+    implementation 'com.yanzhenjie.recyclerview:x:1.3.2'
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //权限获取
+    implementation project(path: ':coroutinepermissions')
+
+
+    //阿里巴巴语音识别
+    implementation files('libs/fastjson-1.1.46.android.jar')
+    implementation(name: 'nuisdk-release', ext: 'aar')
+
+
+
+
+}

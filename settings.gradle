@@ -1,0 +1,3 @@
+rootProject.name = "VoiceIntellect"
+include ':app', ':JetpackMvvm', ':coroutinepermissions'
+

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="click"
+            type="com.fengdi.voiceintellect.ui.activity.LoginActivity.PorxyClick" />
+
+        <variable
+            name="viewModel"
+            type="com.fengdi.voiceintellect.viewmodel.LoginViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_default_layout"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".ui.fragment.LoginFragment">
+
+        <org.heiyiren.app.mvp.ui.widget.StatusBarPlaceHolder
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="@dimen/dp_150"
+            android:layout_marginTop="@dimen/dp_40"
+            android:src="@drawable/ic_logo" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_65"
+            android:layout_marginStart="@dimen/dp_50"
+            android:layout_marginEnd="@dimen/dp_50"
+            android:layout_marginTop="@dimen/dp_30"
+            android:background="@drawable/bg_r4_fff">
+
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:hint="@string/str_please_input_phone"
+                android:paddingStart="@dimen/dp_10"
+                android:paddingEnd="@dimen/dp_10"
+                android:singleLine="true"
+                android:text="@={viewModel.userName}"
+                android:textColor="@color/textColorPrimary"
+                android:textColorHint="#B3B3B3"
+                android:textSize="@dimen/sp_18" />
+
+            <ImageView
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:onClick="@{()->click.clearUserName()}"
+                android:layout_marginEnd="@dimen/dp_12"
+                android:src="@mipmap/ic_clear"
+                android:visibility="@{viewModel.clearVisible}" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_65"
+            android:layout_marginStart="@dimen/dp_50"
+            android:layout_marginEnd="@dimen/dp_50"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@drawable/bg_r4_fff"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:hint="@string/login_hint_input_sms_number"
+                android:inputType="number"
+                android:maxLength="6"
+                android:paddingStart="@dimen/dp_10"
+                android:text="@={viewModel.verifyCode}"
+                android:paddingEnd="@dimen/dp_10"
+                android:singleLine="true"
+                android:textColor="@color/textColorPrimary"
+                android:textColorHint="#B3B3B3"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/tvSendNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_45"
+                android:gravity="center"
+                android:paddingStart="@dimen/dp_25"
+                android:onClick="@{()->click.getVerifyCode()}"
+                android:paddingEnd="@dimen/dp_25"
+                android:text="@string/str_obtain"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/sp_16" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_55"
+            android:layout_marginStart="@dimen/dp_50"
+            android:layout_marginEnd="@dimen/dp_50"
+            android:layout_marginTop="@dimen/dp_40"
+            android:background="@drawable/bg_r4_ff6600"
+            android:gravity="center"
+            android:onClick="@{()->click.login()}"
+            android:text="@string/str_login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16" />
+
+    </LinearLayout>
+</layout>

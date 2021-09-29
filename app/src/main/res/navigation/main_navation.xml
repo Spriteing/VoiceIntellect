@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.fengdi.voiceintellect.ui.fragment.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_selectRoomFragment"
+            app:destination="@id/selectRoomFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_sceneFragment"
+            app:destination="@id/sceneFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_switchDetailFragment"
+            app:destination="@id/switchDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectRoomFragment"
+        android:name="com.fengdi.voiceintellect.ui.fragment.SelectRoomFragment"
+        android:label="SelectRoomFragment"
+        tools:layout="@layout/fragment_select_room" />
+    <fragment
+        android:id="@+id/sceneFragment"
+        android:name="com.fengdi.voiceintellect.ui.fragment.SceneDetailFragment"
+        android:label="SceneFragment"
+        tools:layout="@layout/fragment_scene" />
+    <fragment
+        android:id="@+id/switchDetailFragment"
+        android:name="com.fengdi.voiceintellect.ui.fragment.SwitchDetailFragment"
+        android:label="SwitchDetailFragment" />
+
+
+</navigation>
