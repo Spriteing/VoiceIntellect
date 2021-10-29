@@ -2,6 +2,8 @@ package com.fengdi.voiceintellect.viewmodel
 
 import android.view.View
 import androidx.databinding.ObservableInt
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
 import me.hgj.jetpackmvvm.callback.databind.StringObservableField
 
@@ -24,6 +26,9 @@ class LoginViewModel : BaseViewModel() {
                 View.VISIBLE
             }
         }
+    }
+    init {
+        viewModelScope.launch {  }
     }
 
 

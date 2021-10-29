@@ -3,6 +3,7 @@ package org.heiyiren.app.mvp.ui.widget
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import com.fengdi.voiceintellect.R
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper
 import me.hgj.jetpackmvvm.ext.util.dp2px
 
@@ -15,9 +16,10 @@ class StatusBarPlaceHolder : View {
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
 
     override fun onMeasure(widthMeasureSpec: Int, height: Int) {
-        var heightMeasureSpec = QMUIStatusBarHelper.getStatusbarHeight(context)
+//        var heightMeasureSpec = QMUIStatusBarHelper.getStatusbarHeight(context)
+        var heightMeasureSpec = resources.getDimensionPixelOffset(R.dimen.dp_33)
         if (heightMeasureSpec==0){
-            heightMeasureSpec=dp2px(33)
+            heightMeasureSpec=resources.getDimensionPixelOffset(R.dimen.dp_33)
         }
 
 //        Timber.v("heightMeasureSpec:%s", heightMeasureSpec)

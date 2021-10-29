@@ -3,6 +3,7 @@
 
     <dimen name="dp_main_tab_h">49dp</dimen>
     <dimen name="dp_main_my_tab_r">12dp</dimen>
+    <dimen name="dp_40_">-40dp</dimen>
 
     <dimen name="sp_1">1sp</dimen>
     <dimen name="sp_2">2sp</dimen>
@@ -206,6 +207,8 @@
     <dimen name="sp_200">200sp</dimen>
 
     <dimen name="dp_5ff">-5dp</dimen>
+    <dimen name="dp_30ff">-30dp</dimen>
+    <dimen name="dp_50ff">-50dp</dimen>
     <dimen name="dp_5f">0.5dp</dimen>
     <dimen name="dp_1">1dp</dimen>
     <dimen name="dp_2">2dp</dimen>

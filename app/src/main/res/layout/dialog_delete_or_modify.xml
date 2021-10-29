@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_r10_fff"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvDelete"
+        style="@style/JgTextView_MainColor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginStart="@dimen/dp_12"
+        android:gravity="center_vertical"
+        android:text="删除" />
+
+    <View style="@style/dividingLine_Horizontal" />
+
+    <TextView
+        android:id="@+id/tvModify"
+        style="@style/JgTextView_MainColor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginStart="@dimen/dp_12"
+        android:gravity="center_vertical"
+        android:text="修改" />
+</LinearLayout>

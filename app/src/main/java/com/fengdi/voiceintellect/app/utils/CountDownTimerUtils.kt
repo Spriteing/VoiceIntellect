@@ -17,7 +17,7 @@ class CountDownTimerUtils
         mTextView.isClickable = false
         //设置倒计时时间
         mTextView.text = mTextView.resources.getString(R.string.str_resend_sms_s, (millisUntilFinished / 1000).toString())
-        mTextView.setTextColor(mTextView.resources.getColor(R.color.c_666666))
+        mTextView.setTextColor(mTextView.resources.getColor(R.color.white))
     }
 
     override fun onFinish() {

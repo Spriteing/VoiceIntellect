@@ -1,19 +1,21 @@
 package com.fengdi.voiceintellect.ui.fragment
 
 import android.os.Bundle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fengdi.voiceintellect.R
 import com.fengdi.voiceintellect.app.annotation.VMScope
 import com.fengdi.voiceintellect.app.base.BaseFragment
 import com.fengdi.voiceintellect.app.ext.*
+import com.fengdi.voiceintellect.app.weight.MyToolBar
 import com.fengdi.voiceintellect.data.model.bean.DeviceBean
 import com.fengdi.voiceintellect.databinding.FragmentMainBinding
 import com.fengdi.voiceintellect.ui.adapter.SwitchAdapter
 import com.fengdi.voiceintellect.viewmodel.MainViewModel
 import com.fengdi.voiceintellect.viewmodel.request.RequestDeviceViewModel
 import com.kingja.loadsir.core.LoadService
-import kotlinx.android.synthetic.main.fragment_scene.*
-import kotlinx.android.synthetic.main.include_recyclerview.*
+import kotlinx.android.synthetic.main.fragment_switch.*
+import me.hgj.jetpackmvvm.ext.nav
 import me.hgj.jetpackmvvm.ext.parseState
 
 /**
@@ -44,11 +46,23 @@ class SwitchDetailFragment : BaseFragment<MainViewModel, FragmentMainBinding>() 
 
 
     override fun initView(savedInstanceState: Bundle?) {
+
         injectFragmentVM()
 
+
         arguments?.getParcelable<DeviceBean>("switch")?.let {
-            myToolBar.title = it.sceneSwitchName
-            switchId = it.sceneSwitchId
+            myToolBar.title = it.deviceName
+            switchId = it.deviceId
+        }
+
+        myToolBar.setOnToolBarClickListener(object : MyToolBar.OnToolBarClick() {
+            override fun onLeftClick() {
+                nav().navigateUp()
+            }
+        })
+
+        tvGoBack.setOnClickListener {
+            nav().navigateUp()
         }
 
         //状态页配置
@@ -58,8 +72,10 @@ class SwitchDetailFragment : BaseFragment<MainViewModel, FragmentMainBinding>() 
             requestDeviceViewModel.getSwitchDevice(switchId)
         }
 
+        loadsir.showLoading()
+
         //初始化recyclerView
-        recyclerView.init(LinearLayoutManager(context), switchAdapter)
+        recyclerView.init(GridLayoutManager(context, 3), switchAdapter)
 
         //初始化 SwipeRefreshLayout
         swipeRefresh.init {
@@ -67,7 +83,6 @@ class SwitchDetailFragment : BaseFragment<MainViewModel, FragmentMainBinding>() 
             requestDeviceViewModel.getSwitchDevice(switchId)
         }
 
-        loadsir.showLoading()
         requestDeviceViewModel.getSwitchDevice(switchId)
 
 
@@ -77,7 +92,7 @@ class SwitchDetailFragment : BaseFragment<MainViewModel, FragmentMainBinding>() 
             if (view.id == R.id.swStatus) {
                 //打开场景
                 switchAdapter.data[position].run {
-                    requestDeviceViewModel.operateDevice(sceneSwitchAttributeId, onOffStatus)
+                    requestDeviceViewModel.operateDevice(deviceId, deviceAttributeValue)
                 }
             }
         }
@@ -86,6 +101,12 @@ class SwitchDetailFragment : BaseFragment<MainViewModel, FragmentMainBinding>() 
     override fun createObserver() {
         requestDeviceViewModel.switchState.observe(viewLifecycleOwner) { result ->
             loadListData(result, switchAdapter, loadsir, recyclerView, swipeRefresh)
+            if (result.listData.size == 2) {
+                recyclerView.layoutManager?.let {
+                    it as GridLayoutManager
+                    it.spanCount = 2
+                }
+            }
         }
 
         requestDeviceViewModel.switchDeviceResult.observe(viewLifecycleOwner) {

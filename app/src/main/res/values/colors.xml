@@ -8,13 +8,13 @@
 
 
     <!--状态栏颜色-->
-    <color name="colorPrimary">#FF6600</color>
+    <color name="colorPrimary">#0078fb</color>
     <!--ToolBar上的Title颜色-->
-    <color name="colorPrimaryDark">#FF6600</color>
+    <color name="colorPrimaryDark">#0078FB</color>
     <!--控制各个控件被选中时的颜色-->
-    <color name="colorAccent">#FFCC99</color>
+    <color name="colorAccent">#0078FB</color>
     <color name="textHint">#999999</color>
-    <color name="bg_default_layout">#FFCC99</color>
+    <color name="bg_default_layout">#f6f6f6</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="colorGray">#333</color>
@@ -28,4 +28,5 @@
     <color name="textColorSecondary">#666666</color>
     <color name="c_666666">#666666</color>
     <color name="c_cccccc">#cccccc</color>
+    <color name="c_333333">#333333</color>
 </resources>

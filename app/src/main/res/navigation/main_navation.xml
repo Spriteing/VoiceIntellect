@@ -19,6 +19,15 @@
         <action
             android:id="@+id/action_mainFragment_to_switchDetailFragment"
             app:destination="@id/switchDetailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_terminalDetailFragment"
+            app:destination="@id/terminalDetailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_socketDetailFragment"
+            app:destination="@id/socketDetailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_curtainsDetailFragment"
+            app:destination="@id/curtainsDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/selectRoomFragment"
@@ -32,8 +41,30 @@
         tools:layout="@layout/fragment_scene" />
     <fragment
         android:id="@+id/switchDetailFragment"
+        tools:layout="@layout/fragment_switch"
         android:name="com.fengdi.voiceintellect.ui.fragment.SwitchDetailFragment"
         android:label="SwitchDetailFragment" />
+    <fragment
+        android:id="@+id/terminalDetailFragment"
+        android:name="com.fengdi.voiceintellect.ui.fragment.TerminalDetailFragment"
+        android:label="TerminalDetailFragment" >
+        <action
+            android:id="@+id/action_terminalDetailFragment_to_remoteControlFragment"
+            app:destination="@id/remoteControlFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/remoteControlFragment"
+        android:name="com.fengdi.voiceintellect.ui.fragment.RemoteControlFragment"
+        android:label="RemoteControlFragment" />
+    <fragment
+        android:id="@+id/socketDetailFragment"
+        android:name="com.fengdi.voiceintellect.ui.fragment.SocketDetailFragment"
+        android:label="SocketDetailFragment" />
+
+    <fragment
+        android:id="@+id/curtainsDetailFragment"
+        android:name="com.fengdi.voiceintellect.ui.fragment.CurtainsDetailFragment"
+        android:label="SocketDetailFragment" />
 
 
 </navigation>

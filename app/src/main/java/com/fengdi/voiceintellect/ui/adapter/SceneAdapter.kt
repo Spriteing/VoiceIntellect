@@ -14,6 +14,6 @@ class SceneAdapter(data: ArrayList<SceneBean>) : BaseQuickAdapter<SceneBean, Bas
 
     override fun convert(holder: BaseViewHolder, item: SceneBean) {
         holder.itemView.tvName.text = item.attributeName
-        holder.itemView.tvState.text=item.onOffStatus
+        holder.itemView.tvName.isSelected=item.onOffStatus=="ON"
     }
 }

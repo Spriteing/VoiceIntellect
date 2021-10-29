@@ -1,6 +1,7 @@
 package com.fengdi.voiceintellect.ui.activity
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.blankj.utilcode.util.ToastUtils
@@ -52,6 +53,13 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
         mDatabind.viewModel = mViewModel
     }
 
+    override fun onResume() {
+        /**  * 设置为横屏   */
+        if (requestedOrientation != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        }
+        super.onResume()
+    }
 
     inner class PorxyClick {
         /**

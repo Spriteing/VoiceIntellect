@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_60"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+
+    <ImageView
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginStart="@dimen/dp_26"
+        android:src="@mipmap/qmui_icon_checkbox_normal"/>
+
+    <TextView
+        android:id="@+id/tvName"
+        style="@style/JgTextView_MainColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/dp_16"
+        android:background="@drawable/bg_selector_r10_fff_0078fb"
+        android:gravity="center_vertical"
+        android:text="电动窗帘"
+        android:textSize="@dimen/sp_23" />
+
+
+</LinearLayout>

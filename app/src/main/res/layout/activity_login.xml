@@ -13,121 +13,176 @@
             type="com.fengdi.voiceintellect.viewmodel.LoginViewModel" />
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bg_default_layout"
-        android:gravity="center_horizontal"
+        android:background="@mipmap/bg_login"
+        android:clipChildren="false"
         android:orientation="vertical"
         tools:context=".ui.fragment.LoginFragment">
 
-        <org.heiyiren.app.mvp.ui.widget.StatusBarPlaceHolder
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <ImageView
-            android:layout_width="@dimen/dp_250"
-            android:layout_height="@dimen/dp_150"
-            android:layout_marginTop="@dimen/dp_40"
-            android:src="@drawable/ic_logo" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_65"
-            android:layout_marginStart="@dimen/dp_50"
-            android:layout_marginEnd="@dimen/dp_50"
-            android:layout_marginTop="@dimen/dp_30"
-            android:background="@drawable/bg_r4_fff">
-
-
-            <EditText
-                android:id="@+id/etPhone"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/transparent"
-                android:ellipsize="end"
-                android:gravity="center_vertical"
-                android:hint="@string/str_please_input_phone"
-                android:paddingStart="@dimen/dp_10"
-                android:paddingEnd="@dimen/dp_10"
-                android:singleLine="true"
-                android:text="@={viewModel.userName}"
-                android:textColor="@color/textColorPrimary"
-                android:textColorHint="#B3B3B3"
-                android:textSize="@dimen/sp_18" />
-
-            <ImageView
-                android:layout_width="@dimen/dp_30"
-                android:layout_height="@dimen/dp_30"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:onClick="@{()->click.clearUserName()}"
-                android:layout_marginEnd="@dimen/dp_12"
-                android:src="@mipmap/ic_clear"
-                android:visibility="@{viewModel.clearVisible}" />
-
-        </RelativeLayout>
-
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_65"
-            android:layout_marginStart="@dimen/dp_50"
-            android:layout_marginEnd="@dimen/dp_50"
-            android:layout_marginTop="@dimen/dp_20"
-            android:background="@drawable/bg_r4_fff"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:visibility="visible">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dp_60"
+            android:clipChildren="false"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="@dimen/dp_680"
+                android:layout_height="@dimen/dp_400"
+                android:background="@drawable/bg_r10_fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_100"
+                    android:layout_marginStart="@dimen/dp_50"
+                    android:layout_marginTop="@dimen/dp_50"
+                    android:layout_marginEnd="@dimen/dp_50"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_50"
+                        android:layout_height="@dimen/dp_50"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:src="@mipmap/ic_login_icon_phone" />
 
 
-            <EditText
-                android:id="@+id/etPassword"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/transparent"
-                android:ellipsize="end"
-                android:gravity="center_vertical"
-                android:hint="@string/login_hint_input_sms_number"
-                android:inputType="number"
-                android:maxLength="6"
-                android:paddingStart="@dimen/dp_10"
-                android:text="@={viewModel.verifyCode}"
-                android:paddingEnd="@dimen/dp_10"
-                android:singleLine="true"
-                android:textColor="@color/textColorPrimary"
-                android:textColorHint="#B3B3B3"
-                android:textSize="@dimen/sp_18"
-                android:textStyle="normal" />
+                    <EditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:hint="@string/str_please_input_phone"
+                        android:paddingStart="@dimen/dp_20"
+                        android:paddingEnd="@dimen/dp_15"
+                        android:singleLine="true"
+                        android:text="@={viewModel.userName}"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="@dimen/sp_25"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_2"
+                    android:layout_marginStart="@dimen/dp_50"
+                    android:layout_marginEnd="@dimen/dp_50"
+                    android:background="#20000000" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_100"
+                    android:layout_marginStart="@dimen/dp_50"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:layout_marginEnd="@dimen/dp_50"
+                    android:background="@drawable/bg_r4_fff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_50"
+                        android:layout_height="@dimen/dp_50"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:src="@mipmap/ic_login_icon_password" />
+
+                    <EditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:hint="@string/login_hint_input_sms_number"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:paddingStart="@dimen/dp_20"
+                        android:paddingEnd="@dimen/dp_15"
+                        android:singleLine="true"
+                        android:text="@={viewModel.verifyCode}"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="@dimen/sp_25"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/tvSendNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_45"
+                        android:background="@drawable/bg_r50_0078fb"
+                        android:gravity="center"
+                        android:onClick="@{()->click.getVerifyCode()}"
+                        android:paddingStart="@dimen/dp_25"
+                        android:paddingEnd="@dimen/dp_25"
+                        android:text="@string/str_obtain"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_18" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_2"
+                    android:layout_marginStart="@dimen/dp_50"
+                    android:layout_marginEnd="@dimen/dp_50"
+                    android:background="#20000000" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tvSendNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/dp_45"
+                android:id="@+id/tvLogin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_100"
+                android:layout_marginStart="@dimen/dp_100"
+                android:layout_marginTop="@dimen/dp_50ff"
+                android:layout_marginEnd="@dimen/dp_100"
+                android:background="@drawable/bg_r50_0078fb"
                 android:gravity="center"
-                android:paddingStart="@dimen/dp_25"
-                android:onClick="@{()->click.getVerifyCode()}"
-                android:paddingEnd="@dimen/dp_25"
-                android:text="@string/str_obtain"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/sp_16" />
+                android:onClick="@{()->click.login()}"
+                android:text="@string/str_login"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_30" />
         </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/tvLogin"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_55"
-            android:layout_marginStart="@dimen/dp_50"
-            android:layout_marginEnd="@dimen/dp_50"
-            android:layout_marginTop="@dimen/dp_40"
-            android:background="@drawable/bg_r4_ff6600"
-            android:gravity="center"
-            android:onClick="@{()->click.login()}"
-            android:text="@string/str_login"
-            android:textColor="@color/white"
-            android:textSize="@dimen/sp_16" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <ImageView
+                android:layout_width="@dimen/dp_120"
+                android:layout_height="@dimen/dp_2"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:background="@color/white" />
+
+            <TextView
+                style="@style/JgTextView_MainColor"
+                android:text="V1.0.0"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_16" />
+
+            <ImageView
+                android:layout_width="@dimen/dp_120"
+                android:layout_height="@dimen/dp_2"
+                android:layout_marginStart="@dimen/dp_20"
+                android:background="@color/white" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
 </layout>

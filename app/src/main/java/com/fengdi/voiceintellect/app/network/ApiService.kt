@@ -46,12 +46,24 @@ interface ApiService {
     @GET("/sceneSwitch/getSceneSwitchBySceneSwitchId")
     suspend fun getSceneSwitchs(@Query("sceneSwitchId") sceneSwitchId: Int): ApiResponse<SceneSwitchResult>
 
+    /**
+     * 获得红外设备
+     */
+    @GET("/infrared/getInfraredRemoteControllersByInfraredDeviceId")
+    suspend fun getInfraredDevice(@Query("infraredDeviceId") infraredDeviceId: Int): ApiResponse<ArrayList<InfraredDeviceEntity>>
+
+    /**
+     * 获得遥控器按键
+     */
+    @GET("/infrared/getInfraredRemoteControllerKeysById")
+    suspend fun getRemoteControlKeys(@Query("infraredRemoteControllerId") infraredRemoteControllerId: Int): ApiResponse<ArrayList<InfraredKeyBean>>
+
 
     /**
      * 获取开关的设备
      */
     @GET("/device/getDeviceDetails")
-    suspend fun getSwitcDevices(@Query("deviceId") deviceId: Int): ApiResponse<ArrayList<SwitchBean>>
+    suspend fun getSwitcDevices(@Query("deviceId") deviceId: Int): ApiResponse<SwitchDetailResult>
 
 
     /**
@@ -61,10 +73,24 @@ interface ApiService {
     suspend fun openScene(@Query("sceneSwitchAttributeId") sceneSwitchAttributeId: Int): ApiResponse<Any>
 
 
+
+    /**
+     * 按下遥控器
+     */
+    @GET("/infrared/pressInfraredRemoteControllerKey")
+    suspend fun clickKey(@Query("infraredRemoteControllerKeyId") infraredRemoteControllerKeyId: Int): ApiResponse<Any>
+
+
     /**
      * 打开或关闭设备
      */
     @GET("/device/setDeviceSubChannel")
     suspend fun operateDevice(@Query("deviceAttributeId") id: Int, @Query("status") status: String): ApiResponse<Any>
+
+    /**
+     * 打开或关闭设备
+     */
+    @GET("/voice/voiceCommand")
+    suspend fun voiceCommand(@Query("roomId") id: Int, @Query("command") command: String): ApiResponse<String>
 
 }

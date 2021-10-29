@@ -1,21 +1,29 @@
 package com.fengdi.voiceintellect.ui.activity
 
 import android.Manifest
-import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.provider.MediaStore
+import android.view.LayoutInflater
+import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.Navigation
-import com.alibaba.idst.nui.INativeNuiCallback
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.ToastUtils
 import com.fengdi.voiceintellect.R
 import com.fengdi.voiceintellect.app.base.BaseActivity
+import com.fengdi.voiceintellect.data.model.bean.DialogueBean
 import com.fengdi.voiceintellect.databinding.ActivityMainBinding
+import com.fengdi.voiceintellect.ui.adapter.VoiceHelperAdapter
+import com.fengdi.voiceintellect.ui.dialog.MyBottomPopup
 import com.fengdi.voiceintellect.viewmodel.MainViewModel
 import com.github.lilei.coroutinepermissions.requestPermissionsForResult
+import com.qmuiteam.qmui.widget.dialog.QMUIDialog
+import kotlinx.android.synthetic.main.popup_voice_helper.*
+import kotlinx.android.synthetic.main.popup_voice_helper.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.zip.Inflater
 
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
@@ -25,9 +33,27 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     private val permsSd =
         arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO)
 
+    val dialogueAdapter: VoiceHelperAdapter by lazy {
+        VoiceHelperAdapter(arrayListOf())
+    }
+
     override fun layoutId() = R.layout.activity_main
 
+    lateinit var voiceHelperDialog: MyBottomPopup
+
+    lateinit var dialogView: View
+
+
+    override fun onResume() {
+        /**  * 设置为横屏   */
+        if (requestedOrientation != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        }
+        super.onResume()
+    }
+
     override fun initView(savedInstanceState: Bundle?) {
+
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 val nav = Navigation.findNavController(this@MainActivity, R.id.host_fragment)
@@ -56,17 +82,68 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
             }
         }
 
+        initVoiceHelper()
+
+        mViewModel.isShowVoiceDialog.observe(this) {
+            if (it) {
+                voiceHelperDialog.show()
+            } else {
+                voiceHelperDialog.dismiss()
+            }
+        }
+
+        mViewModel.dialogues.observe(this) {
+            dialogueAdapter.setList(it)
+            if (it.size > 3) {
+                rcyDialogue.scrollToPosition(it.size - 1)
+            }
+        }
+
+        mViewModel.isAwaken.observe(this) {
+            if (voiceHelperDialog.isShowing) {
+                if (it) {
+                    dialogView.tvStatus.setText("倾听中...")
+                } else {
+                    dialogView.tvStatus.setText("倾听停止")
+                }
+            }
+        }
+
+
         mDatabind.click = PorxyClick()
         mDatabind.viewmodel = mViewModel
+
     }
+
+
+    /**
+     * 显示语音助手
+     */
+    fun initVoiceHelper() {
+        voiceHelperDialog = MyBottomPopup(this).apply {
+            dialogView = LayoutInflater.from(this@MainActivity).inflate(R.layout.popup_voice_helper, null)
+            dialogView.rcyDialogue.let {
+                it.layoutManager = LinearLayoutManager(this@MainActivity)
+                it.adapter = dialogueAdapter
+            }
+
+            addContentView(dialogView)
+            setOnCancelListener {
+                mViewModel.stopNui()
+            }
+        }
+    }
+
 
     inner class PorxyClick {
         fun startNui() = mViewModel.startNui()
     }
 
+
     override fun onStop() {
         super.onStop()
         mViewModel.onStop()
     }
+
 
 }

@@ -7,12 +7,19 @@ import kotlinx.android.parcel.Parcelize
 @SuppressLint("ParcelCreator")
 @Parcelize
 data class DeviceBean(
-    val deviceName: String,
+    var deviceName: String?,
     val sensorName: String,
-    val sceneSwitchName: String,
+    val sceneSwitchName: String?,
+    val sensorValue: String?,
+    val onlineState: String,
+    val infraredDeviceName: String?,
     val logo: String,
     val id: Int,
-    val mac: String,
-    val sceneSwitchId: Int
+    var mac: String?,
+    val infraredDeviceMac: String?,
+    val status: String,
+    val sceneSwitchId: Int,
+    val infraredDeviceId: Int,
+    val deviceId: Int
 ) : Parcelable {
 }

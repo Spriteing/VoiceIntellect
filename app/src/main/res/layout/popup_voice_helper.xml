@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_300"
+    android:orientation="vertical"
+    android:background="#cc000000">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcyDialogue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_150"
+        android:layout_marginStart="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_20"
+        tools:listitem="@layout/item_dialogue" />
+
+
+    <TextView
+        android:id="@+id/tvStatus"
+        style="@style/JgTextView_MainColor"
+        android:text="倾听中..."
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dp_50"
+        android:layout_marginBottom="@dimen/dp_50"
+        android:gravity="center"
+        android:textSize="@dimen/sp_16"/>
+
+</LinearLayout>

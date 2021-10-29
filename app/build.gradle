@@ -118,6 +118,8 @@ dependencies {
     implementation(name: 'nuisdk-release', ext: 'aar')
 
 
+    implementation 'com.github.kongqw:AndroidSerialPort:1.+'
+
 
 
 }

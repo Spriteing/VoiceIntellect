@@ -36,23 +36,29 @@
                 android:textStyle="bold" />
 
 
-            <TextView
-                android:id="@+id/tvSelectRoom"
+            <ImageView
+                android:id="@+id/tvSetting"
                 style="@style/JgTextView_MainColor"
-                android:layout_height="match_parent"
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dp_20"
                 android:gravity="center"
-                android:onClick="@{()->click.selectRoom()}"
-                android:text="选择房间"
-                android:textColor="@color/textColorLight"
-                android:textSize="@dimen/sp_16"
-                android:textStyle="bold" />
+                android:onClick="@{()->click.setting()}"
+                android:padding="@dimen/dp_10"
+                android:src="@drawable/ic_setting" />
+
+
 
         </RelativeLayout>
 
-        <include layout="@layout/include_recyclerview" />
+        <include layout="@layout/include_recyclerview"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_width="wrap_content"
+            />
 
 
     </LinearLayout>
