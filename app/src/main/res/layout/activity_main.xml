@@ -51,7 +51,6 @@
                 style="@style/JgTextView_MainColor"
                 android:layout_marginStart="@dimen/dp_12"
                 android:layout_marginTop="@dimen/dp_12"
-                android:text="@{viewmodel.asrResult}"
                 android:textColor="#ff0000"
                 android:textSize="@dimen/sp_18"
                 app:layout_constraintStart_toEndOf="@+id/imageView"

@@ -90,33 +90,33 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>() {
                 if (it.mac.isNullOrEmpty()) {
                     return@setOnItemClickListener
                 }
-                when {
-                    //场景开关
-                    it.mac!!.startsWith("YINKE:SCENESWITCH") -> {
+                //场景开关
+                when (it.deviceType) {
+                    "SCENESWITCH" -> {
                         nav().navigate(R.id.action_mainFragment_to_sceneFragment, Bundle().apply {
                             putParcelable("scene", it)
                         })
                     }
                     //开关详情
-                    it.mac!!.startsWith("YINKE:SWITCH") -> {
+                    "SWITCH" -> {
                         nav().navigate(R.id.action_mainFragment_to_switchDetailFragment, Bundle().apply {
                             putParcelable("switch", it)
                         })
                     }
                     //红外
-                    it.mac!!.startsWith("YINKE:INFRARED") -> {
+                    "INFRARED" -> {
                         nav().navigate(R.id.action_mainFragment_to_terminalDetailFragment, Bundle().apply {
                             putParcelable("terminal", it)
                         })
                     }
                     //插座
-                    it.mac!!.startsWith("YINKE:SOCKET") -> {
+                    "SOCKET" -> {
                         nav().navigate(R.id.action_mainFragment_to_socketDetailFragment, Bundle().apply {
                             putParcelable("socket", it)
                         })
                     }
                     //窗帘
-                    it.mac!!.startsWith("YINKE:CURTAIN") -> {
+                    "CURTAIN" -> {
                         nav().navigate(R.id.action_mainFragment_to_curtainsDetailFragment, Bundle().apply {
                             putParcelable("curtain", it)
                         })

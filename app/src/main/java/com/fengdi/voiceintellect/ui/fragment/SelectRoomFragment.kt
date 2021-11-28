@@ -50,18 +50,21 @@ class SelectRoomFragment : BaseFragment<MainViewModel, FragmentSelectRoomBinding
         val rooms = arrayListOf<String>()
 
         arguments?.getInt("position")?.let {
-            roomList.addAll(requestDeviceViewModel.gatewayList[it].roomList)
+            if (requestDeviceViewModel.gatewayList != null && requestDeviceViewModel.gatewayList[0].roomList != null) {
+                roomList.addAll(requestDeviceViewModel.gatewayList[it].roomList)
 
-            roomList.forEach { room ->
-                rooms.add(room.roomName)
+                roomList.forEach { room ->
+                    rooms.add(room.roomName)
+                }
             }
         }
 
-
-
-        if (roomList.isNotEmpty()) {
-            roomEntiry = roomList[0]
+        if (roomList.isEmpty()) {
+            return
         }
+
+
+        roomEntiry = roomList[0]
 
         mySpinner.setItemsData(rooms)
         mySpinner.setOnItemClickListener(object : MyOnItemClickListener<String> {

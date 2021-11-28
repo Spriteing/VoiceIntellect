@@ -17,4 +17,6 @@ class EventViewModel : BaseViewModel() {
     //添加TODO通知
     val todoEvent = EventLiveData<Boolean>()
 
+    //添加TODO通知
+    val startNuiEvent = EventLiveData<Boolean>()
 }

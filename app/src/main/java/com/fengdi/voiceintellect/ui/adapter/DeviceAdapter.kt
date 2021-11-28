@@ -69,12 +69,8 @@ class DeviceAdapter(data: ArrayList<DeviceBean>) : BaseQuickAdapter<DeviceBean, 
 
             ivOnLineState.isSelected = data.onlineState == "online"
 
-            ivDevice.setImageResource(DeviceIconUtil.getDeviceIcon(data.mac))
-            if (data.infraredDeviceMac.isNullOrBlank()){
-                ivDevice.setImageResource(DeviceIconUtil.getDeviceIcon(data.mac))
-            }else{
-                ivDevice.setImageResource(R.mipmap.ic_intellect_black)
-            }
+            ivDevice.setImageResource(DeviceIconUtil.getDeviceIcon(data.deviceType,data.channelNums))
+
 
         }
 

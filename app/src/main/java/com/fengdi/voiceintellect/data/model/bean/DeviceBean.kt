@@ -11,6 +11,7 @@ data class DeviceBean(
     val sensorName: String,
     val sceneSwitchName: String?,
     val sensorValue: String?,
+    val deviceType: String?,
     val onlineState: String,
     val infraredDeviceName: String?,
     val logo: String,
@@ -19,6 +20,7 @@ data class DeviceBean(
     val infraredDeviceMac: String?,
     val status: String,
     val sceneSwitchId: Int,
+    val channelNums: Int?,
     val infraredDeviceId: Int,
     val deviceId: Int
 ) : Parcelable {
