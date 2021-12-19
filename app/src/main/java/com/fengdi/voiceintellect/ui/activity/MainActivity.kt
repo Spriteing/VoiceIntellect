@@ -206,6 +206,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(), INative
     }
 
     fun setCurStatus(isDiscern: Boolean) {
+        LogUtils.i("--------1-------setCurStatus")
         isAwaken = isDiscern
         if (voiceHelperDialog.isShowing) {
             if (isDiscern) {
@@ -405,6 +406,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(), INative
 
     private fun showNuiDialog() {
         runOnUiThread {
+            LogUtils.v("--------1-------showNuiDialog")
             voiceHelperDialog.show()
         }
 
@@ -566,7 +568,6 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(), INative
      */
     fun startNui() {
 
-
         if (isAwaken) {
             //如果 已经唤醒
             stopNui()
@@ -575,7 +576,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(), INative
             Constants.VadMode.TYPE_P2T,
             "{}"
         )
-        LogUtils.i("start done with $ret")
+        LogUtils.i("--------1-------start done with $ret")
 
 
         runOnUiThread {
